@@ -48,6 +48,28 @@
       }
     },
     {
+      "id": "SLPM-65462",
+      "title": "真・女神転生III NOCTURNE マニアクス",
+      "reads": "The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up",
+      "version": "SLPM-65462",
+      "api": 1,
+      "file": "SLPM-65462.lua",
+      "size": 12024,
+      "sha256": "83352e544f0d00a25f43162801f47182414d7f447d2eec161b0dafb0cef96594",
+      "data": [
+        {
+          "file": "SLPM-65462.charset",
+          "size": 9759,
+          "sha256": "88631abb8e1c31184cd00a6082f6deff102eaaf169151baa9ccd8ec15b781862"
+        }
+      ],
+      "names": {
+        "file": "names-shin-megami-tensei-nocturne.zip",
+        "size": 6952,
+        "sha256": "944500ee7b1a879393b6457ac9d24432a92b3de92a6b97026c24e6d9992779e6"
+      }
+    },
+    {
       "id": "SLPM-65550",
       "title": "Remember11 -the age of infinity-",
       "reads": "The story's text with speakers, each message as it has come up in full, and choices",
@@ -78,6 +100,50 @@
       }
     },
     {
+      "id": "SLPM-65597",
+      "title": "DIGITAL DEVIL SAGA アバタール・チューナー",
+      "reads": "The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up",
+      "version": "SLPM-65597",
+      "api": 1,
+      "file": "SLPM-65597.lua",
+      "size": 12015,
+      "sha256": "34236e7c4ba6947bc2ede89ba8fecbb19c70ed315df12aa25d181c7dedce69c8",
+      "data": [
+        {
+          "file": "SLPM-65597.charset",
+          "size": 10691,
+          "sha256": "a2a45802385d16b9b0a72b2797f271843a701280d621eb0371b0c67096eb46f6"
+        }
+      ],
+      "names": {
+        "file": "names-digital-devil-saga.zip",
+        "size": 4745,
+        "sha256": "ca6a81344014033e5e37e4f4f7508c1f29edcf734a5ecbeaa41efb3a65b53c83"
+      }
+    },
+    {
+      "id": "SLPM-65790",
+      "title": "METAL GEAR SOLID 3 SNAKE EATER",
+      "reads": "The codec's conversations and the subtitles of cutscenes and radio calls",
+      "version": "SLPM-65790",
+      "api": 1,
+      "file": "SLPM-65790.lua",
+      "size": 14552,
+      "sha256": "ab4f3d622a10d0aba760e601e46fc8b1de2183e14b4bf7ce9f0daa649176ebc3",
+      "data": [
+        {
+          "file": "SLPM-65790.charset",
+          "size": 20304,
+          "sha256": "696dee683a8400bbb96df542ed8f00228c878c9f612c8aa6b5cd6b21046b0a79"
+        }
+      ],
+      "names": {
+        "file": "names-metal-gear-solid-3.zip",
+        "size": 7413,
+        "sha256": "e6f6151c74e35c5fea6ca9a312d3e310492a2d63588dddd4e4d45cac85c011a1"
+      }
+    },
+    {
       "id": "SLPM-66302",
       "title": "CLANNAD",
       "reads": "The story's text with speakers, each message as it comes up, and choices; finished routes can be marked",
@@ -90,6 +156,28 @@
         "file": "names-clannad.zip",
         "size": 7203,
         "sha256": "5006b9ad05c9868aa891be44ff0be6c0fd747db926086bd1339f7bfac4a850c4"
+      }
+    },
+    {
+      "id": "SLPM-66445",
+      "title": "ペルソナ3",
+      "reads": "The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices",
+      "version": "SLPM-66445",
+      "api": 1,
+      "file": "SLPM-66445.lua",
+      "size": 12004,
+      "sha256": "cedd2978403001cd4597eddf3258c38146c07056e2dc80bf90dd61b4227614fd",
+      "data": [
+        {
+          "file": "SLPM-66445.charset",
+          "size": 10322,
+          "sha256": "2b6c965993b1698e44d1c8344f696d07b9b274d7fbaa218ac38e25e3edfefae4"
+        }
+      ],
+      "names": {
+        "file": "names-persona-3.zip",
+        "size": 10748,
+        "sha256": "a352b27a363461d1b9690bb18be81de9ff237a003b5b269e69955859f8251185"
       }
     },
     {
@@ -108,6 +196,72 @@
       }
     },
     {
+      "id": "SLPM-66978",
+      "title": "ペルソナ4",
+      "reads": "The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices",
+      "version": "SLPM-66978",
+      "api": 1,
+      "file": "SLPM-66978.lua",
+      "size": 11906,
+      "sha256": "12fca0a9d3e2c0583aa0d4428501d9b598e84b562a874ff73d17fd4e7e554880",
+      "data": [
+        {
+          "file": "SLPM-66978.charset",
+          "size": 10516,
+          "sha256": "f150744136228b66b5388206ef58b779bb106e33b161ee6c9d5d28b1bd65e9d6"
+        }
+      ],
+      "names": {
+        "file": "names-persona-4.zip",
+        "size": 10510,
+        "sha256": "94ecf3fc697b951a04549d64aaebe1ad1fc66db82520abe0bf06ed071337c8bc"
+      }
+    },
+    {
+      "id": "SLPM-67002",
+      "title": "METAL GEAR SOLID 2 SUBSTANCE",
+      "reads": "The codec's conversations and the subtitles of cutscenes and radio calls",
+      "version": "SLPM-67002, disc version 1.01",
+      "api": 1,
+      "file": "SLPM-67002.lua",
+      "size": 14395,
+      "sha256": "12b0643c6bec7391e5d16dec62ca44d5f7422ddadc0c5799abbc1e8bef138017",
+      "data": [
+        {
+          "file": "SLPM-67002.charset",
+          "size": 19161,
+          "sha256": "0ca4cb5aa279eda6a9406b95c106a9eb2f82e952aa3ea9cd7b2931a29fca8372"
+        }
+      ],
+      "names": {
+        "file": "names-metal-gear-solid-2.zip",
+        "size": 8014,
+        "sha256": "9ea5317bcabe8bd8d9071132e081890c79fc4916545a33349e0395a44d9ae1a8"
+      }
+    },
+    {
+      "id": "SLPS-20121",
+      "title": "Kanon",
+      "reads": "The story's text with speakers, each message once it is typed out, and choices",
+      "version": "SLPS-20121, disc version 1.02",
+      "api": 1,
+      "file": "SLPS-20121.lua",
+      "size": 9743,
+      "sha256": "36d51f9dd4c7b44f94e25e92323b7313a401e4b9027edf7fedfb2dc8eb9edb32",
+      "data": [
+        {
+          "file": "SLPS-20121.charset",
+          "size": 1287,
+          "sha256": "47b0525730a7024439756d8f1de126d21689b353bb86649951a08151b43a53ac"
+        }
+      ],
+      "names": {
+        "file": "names-kanon.zip",
+        "size": 4335,
+        "sha256": "2ba08a0c22dc46ada423facd3c8c2cb7c890ca5f1b435f89e63a4156ef4b119f"
+      }
+    },
+    {
       "id": "SLPS-25041",
       "title": "シャドウハーツ",
       "reads": "The message windows of scenes and talk, with the speaker's name",
@@ -120,6 +274,28 @@
         "file": "names-shadow-hearts.zip",
         "size": 9481,
         "sha256": "d8819ae7adf484dca836ba18cf0d6b039fc036337ff4719076e3a9d6af2bf237"
+      }
+    },
+    {
+      "id": "SLPS-25088",
+      "title": "ファイナルファンタジーX インターナショナル",
+      "reads": "What the message windows show (speech with its speaker, subtitles, notices) once typed out, and choices",
+      "version": "SLPS-25088",
+      "api": 1,
+      "file": "SLPS-25088.lua",
+      "size": 16511,
+      "sha256": "6d12863390ad5511660a7313f8d287275adecf20cd960ffddadb366ac01b5650",
+      "data": [
+        {
+          "file": "SLPS-25088.charset",
+          "size": 7653,
+          "sha256": "407b6a61e7bdd93c2ac0eb503997206be8886d996872492208f17593e87da249"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-x.zip",
+        "size": 8551,
+        "sha256": "ba93763cda5bb243e7bc1c79e09ea00403c08381493c405c259b378a2a075e8b"
       }
     },
     {

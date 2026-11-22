@@ -67,9 +67,10 @@ release.
 Under the hood, the agent drives Furoshiki via `tools/agent.py`, a zero-dependency Python CLI
 (`python tools/agent.py --help`).
 
-> **Custom fonts:** Games that render text using a custom bitmap font instead of Shift-JIS or
-> Unicode require a game-specific character table. Because those tables can't be redistributed, those
-> games can't be added to this repo. The agent will let you know if it hits one.
+> **Custom fonts:** Games that number the characters of a font of their own instead of using
+> Shift-JIS or Unicode need a character table beside their script (`<ID>.charset`): a text file
+> saying which character each of the game's codes stands for. It holds no font pictures or game
+> text, so it is published here with the script, and the agent makes one when the game needs it.
 
 ## Script guidelines
 

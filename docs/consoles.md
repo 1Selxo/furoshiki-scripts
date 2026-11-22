@@ -22,9 +22,10 @@ between the characters (a byte or two below 0x20, or a sequence the game reserve
 pauses, the player's name, furigana). Newer games use UTF-8 or **UTF-16** (`text.utf16le`);
 some PS1 and PS2 games and many DS games number the characters of their own font instead
 (a "character table"). `python tools/agent.py find "TEXT"` tries Shift-JIS, EUC-JP, UTF-8 and
-both UTF-16s. When none finds a line that is plainly on screen, the game has a table of its
-own: such a script needs the table made from the game, which is never published here, so the
-game cannot go in this repository (Furoshiki's maintainer has some for their own use).
+both UTF-16s. When none finds a line that is plainly on screen, the game has a font of its
+own, and its script needs a character table beside it (`<ID>.charset`, read with
+`reader.data("charset")`): [AGENTS.md](../AGENTS.md), step 3, says how one is made, and the
+PlayStation and PS2 folders have 25 examples.
 
 ## Hints by console
 

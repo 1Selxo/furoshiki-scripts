@@ -520,7 +520,10 @@ def main():
     args = parser.parse_args()
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    args.run(args)
+    try:
+        args.run(args)
+    except BrokenPipeError:  # the output was cut short (`| head`)
+        sys.stderr.close()
 
 
 if __name__ == "__main__":

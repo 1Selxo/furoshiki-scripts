@@ -192,9 +192,10 @@ and what is not covered.
 4. **Use the game's own furigana** when it has any, as ruby spans.
 5. **Say where the text is** (`reader.layout`) when it can be found out. Without it the
    app can only show the line in its own panel.
-6. **No game text in a script.** Addresses, control-code tables and decoding logic are
-   fine. Extracted scripts, glyph tables made from the game's font and anything else
-   derived from the game stay on your computer.
+6. **No game text in a script.** Addresses, control-code tables, character tables (the
+   game's codes and the characters they stand for) and decoding logic are fine. Extracted
+   scripts, the font's pictures and anything else that copies the game stay on your
+   computer.
 7. **Say what is not covered** in the header comment.
 8. **Say what the script is** in three lines among the comments it begins with:
    `-- reader: title <the game's name>`, `-- reader: reads <what is read, in a line>`

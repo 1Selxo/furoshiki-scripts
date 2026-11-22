@@ -13,8 +13,9 @@ on Windows, Linux and macOS. Nothing here downloads games, BIOS files, keys or f
 ## Rules
 
 - **Never commit anything taken from a game**: dumps, extracted files, text, screenshots,
-  memory snaps, fonts, character tables. Your working files go in `.agent/`, which Git
-  ignores. A script holds addresses and decoding logic only.
+  memory snaps, fonts or glyph pictures. Your working files go in `.agent/`, which Git
+  ignores. A script holds addresses and decoding logic, and a character table (step 3) the
+  game's codes and the characters they stand for, nothing more.
 - **Say what was seen and how.** "Read the first ten lines of the prologue in Furoshiki, as
   the game showed them" is a report; "should work" is not. Never report a step as done that
   you did not see.
@@ -84,8 +85,21 @@ pointer to the current message, the count of characters shown, the window's stat
 `lua` (any expression of the script API, run in the game) check what each is.
 
 When `find` finds nothing for a line that is plainly on screen, the game numbers its
-characters in a font of its own (a character table). A script for it needs that table, made
-from the game, which is never published: tell the user the game cannot be added here, and why.
+characters in a font of its own. Its script then needs a **character table**,
+`<ID>.charset` beside the script: UTF-8 text that says which character each of the game's
+codes stands for, which the script reads with `reader.data("charset")`. The tables in
+`games/ps1/final-fantasy-vii`, `games/ps2/persona-4` and `games/ps2/metal-gear-solid-2` show
+the usual forms: the characters in the font's order, one string or row by row; a code and its
+character on each line; a hash of a glyph's pixels and its character. To make one:
+
+- Find the codes of the line on screen in memory (`snap` and `changed` while the line types
+  out, or the 16-bit numbers between known control codes), then the font they index.
+- Many fonts follow an order of their own makers' (JIS order, the kana then the kanji): a few
+  characters read off the screen fix the rest. Check every row you fill against the game.
+- A published table of the same game may exist (Agent's scripts, fan translation tools): use
+  it only when its licence allows, and say where it came from in the table's first comment.
+- A table holds codes and characters (and widths, if the script needs them), never the font's
+  pictures.
 
 ## 4. Write the script
 

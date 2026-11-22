@@ -12,8 +12,9 @@ What it holds a script to (README.md, "Rules for a script"):
 - it begins with its `-- reader: title`, `reads` and `version` lines;
 - it is UTF-8 and smaller than 256 KB;
 - nothing else is in a game's folder but the names dictionary (names-*.zip), a notes page
-  (README.md) and data files a script asks for with reader.data(), each under 256 KB; never a
-  character table (*.charset), which is made from the game and is not published.
+  (README.md) and data files a script asks for with reader.data(), each under 256 KB; a
+  character table (<ID>.charset) is UTF-8 text: the game's codes and the characters they stand
+  for, never the font's pictures.
 """
 import argparse
 import re
@@ -65,6 +66,8 @@ def main():
             continue
         for game in sorted(console.iterdir()):
             here = f"games/{console.name}/{game.name}"
+            if game.name == "README.md":
+                continue  # the console's list of games, made by tools/build-lists.py
             if not game.is_dir():
                 problems.append(f"{here}: a script goes in its game's folder, games/{console.name}/<game>/")
                 continue
@@ -107,12 +110,15 @@ def main():
                     problems.append(f"{where}: no folders inside a game's folder")
                 elif name.endswith(".lua") or name == "README.md" or re.match(r"^names-[a-z0-9-]+\.zip$", name):
                     continue
-                elif name.endswith(".charset"):
-                    problems.append(f"{where}: a character table is made from the game and is never published")
                 elif name not in wanted:
                     problems.append(f"{where}: no script here asks for it (reader.data)")
                 elif path.stat().st_size > LIMIT:
                     problems.append(f"{where}: larger than 256 KB")
+                elif name.endswith(".charset"):
+                    try:
+                        path.read_bytes().decode("utf-8")
+                    except UnicodeDecodeError:
+                        problems.append(f"{where}: a character table is UTF-8 text")
     for problem in problems:
         print(problem)
     print(f"{scripts} scripts, {len(problems)} problem(s)", file=sys.stderr)

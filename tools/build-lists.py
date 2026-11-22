@@ -42,7 +42,33 @@ def wanted():
             out[folder + name] = data
         out[folder + "index.json"] = index.text(made).encode("utf-8")
     out["scripts/README.md"] = NOTE.encode("utf-8")
+    out.update(catalogues())
     return out, problems
+
+
+NAMES = {"ps1": "PlayStation", "ps2": "PlayStation 2", "psp": "PSP", "dreamcast": "Dreamcast",
+         "3ds": "Nintendo 3DS", "nds": "Nintendo DS", "vita": "PS Vita"}
+
+
+def catalogues():
+    """games/<console>/README.md: the console's games, which GitHub shows under the folder."""
+    out = {}
+    for console in sorted(p for p in (ROOT / "games").iterdir() if p.is_dir()):
+        rows = []
+        for game in sorted(p for p in console.iterdir() if p.is_dir()):
+            scripts = sorted(game.glob("*.lua"))
+            if not scripts:
+                continue
+            said = index.header(scripts[0].read_text(encoding="utf-8"))
+            title = said.get("title", game.name).replace("|", "\\|")
+            ids = ", ".join(f"[{s.stem}]({game.name}/{s.name})" for s in scripts)
+            reads = said.get("reads", "").replace("|", "\\|")
+            rows.append(f"| [{game.name}]({game.name}/) | {title} | {ids} | {reads} |")
+        text = (f"# {NAMES.get(console.name, console.name)}\n\n"
+                f"{len(rows)} games. Made by tools/build-lists.py from the scripts' header lines.\n\n"
+                "| Folder | Title | ID | What is read |\n| --- | --- | --- | --- |\n" + "\n".join(rows) + "\n")
+        out[f"games/{console.name}/README.md"] = text.encode("utf-8")
+    return out
 
 
 def main(argv):
@@ -58,7 +84,7 @@ def main(argv):
             if not check:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(data)
-    for path in sorted((ROOT / "scripts").rglob("*")):
+    for path in sorted([*(ROOT / "scripts").rglob("*"), *(ROOT / "games").glob("*/README.md")]):
         name = path.relative_to(ROOT).as_posix()
         if path.is_file() and name not in files:
             stale.append(name + " (not in games/)")

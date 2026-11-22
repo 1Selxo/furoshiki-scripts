@@ -63,6 +63,116 @@
       }
     },
     {
+      "id": "SCPS-45500",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SCPS-45500 (boot program AA3684E8; disc 1 of 4)",
+      "api": 1,
+      "file": "SCPS-45500.lua",
+      "size": 12262,
+      "sha256": "51fe79ad1a89d30a7957810bc046d70563776f9879a0fd6c4c06c3844194ec79",
+      "data": [
+        {
+          "file": "SCPS-45500.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SCPS-45501",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SCPS-45501 (boot program AA3684E8; disc 2 of 4)",
+      "api": 1,
+      "file": "SCPS-45501.lua",
+      "size": 12262,
+      "sha256": "fd352750e73cb1df202cddf9207f1d8621279319d947379defae161a768bc84a",
+      "data": [
+        {
+          "file": "SCPS-45501.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SCPS-45502",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SCPS-45502 (boot program AA3684E8; disc 3 of 4)",
+      "api": 1,
+      "file": "SCPS-45502.lua",
+      "size": 12262,
+      "sha256": "90f417865db3992d9aba520ff520307c6e20cdcb38bbc980ce4b5081d1a62e86",
+      "data": [
+        {
+          "file": "SCPS-45502.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SCPS-45503",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SCPS-45503 (boot program AA3684E8; disc 4 of 4)",
+      "api": 1,
+      "file": "SCPS-45503.lua",
+      "size": 12262,
+      "sha256": "c0fd68dd1ea079e9d1e6015e7544fc3ba19fa9560f407b8d38548c540ac2a06d",
+      "data": [
+        {
+          "file": "SCPS-45503.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SLPS-00102",
+      "title": "トワイライトシンドローム 探索編",
+      "reads": "The message window's lines as they are written: the narration, and what is said, with its speaker",
+      "version": "SLPS-00102 (boot program D21B63C4)",
+      "api": 1,
+      "file": "SLPS-00102.lua",
+      "size": 11025,
+      "sha256": "e8dafc7df54276df021553a6286d52e6cbff7ca3e084e6a8118917685371e7c9",
+      "data": [
+        {
+          "file": "SLPS-00102.charset",
+          "size": 27416,
+          "sha256": "15f41d4c82b5c8b653a05cf0df03f773c9dee18cc31a0227430b1a7db4b5947d"
+        }
+      ],
+      "names": {
+        "file": "names-twilight-syndrome-tansaku-hen.zip",
+        "size": 4251,
+        "sha256": "b7b6147973e02a50d68513139bcff43c4077b30008d24b8220de8d8c707b37b4"
+      }
+    },
+    {
       "id": "SLPS-00404",
       "title": "学校であった怖い話S",
       "reads": "The story's text, written down the page, paragraph by paragraph, and its choices",
@@ -78,6 +188,160 @@
       }
     },
     {
+      "id": "SLPS-00405",
+      "title": "トワイライトシンドローム 究明編",
+      "reads": "The message window's lines as they are written: the narration, and what is said, with its speaker",
+      "version": "SLPS-00405 (boot program 9ECCD178)",
+      "api": 1,
+      "file": "SLPS-00405.lua",
+      "size": 11104,
+      "sha256": "a3a29d9a887e0ed6308a06e5a942b6dda2a4efee409ec8b1c123263bac2734cb",
+      "data": [
+        {
+          "file": "SLPS-00405.charset",
+          "size": 28949,
+          "sha256": "93f4a42c68f096ff908c81b648abe5d62410db28ca30bf1c34227d6d598d63c7"
+        }
+      ],
+      "names": {
+        "file": "names-twilight-syndrome-kyuumei-hen.zip",
+        "size": 4354,
+        "sha256": "5a5e235c929287ed40d9f49eb6fd216964eab75ea88edbb466663fb829bc8806"
+      }
+    },
+    {
+      "id": "SLPS-00700",
+      "title": "ファイナルファンタジーVII (ディスク1)",
+      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "version": "SLPS-00700 (boot program 61B5B75A)",
+      "api": 1,
+      "file": "SLPS-00700.lua",
+      "size": 10750,
+      "sha256": "2417dddc80d01e4194991c4496d8f8ddfd65488178fe4f214eda73fb71a1978a",
+      "data": [
+        {
+          "file": "SLPS-00700.charset",
+          "size": 10821,
+          "sha256": "fa794871a83bf67ed99f9495d2a10d159b856f8c86f2e0a90efeafe7ea4e783b"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-vii.zip",
+        "size": 9278,
+        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+      }
+    },
+    {
+      "id": "SLPS-00701",
+      "title": "ファイナルファンタジーVII (ディスク2)",
+      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "version": "SLPS-00701 (boot program 61B5B75A)",
+      "api": 1,
+      "file": "SLPS-00701.lua",
+      "size": 10750,
+      "sha256": "18947a208639c8bdf6c867aad8cb489d9f4ecf9c86803124093258f721d8fdd0",
+      "data": [
+        {
+          "file": "SLPS-00701.charset",
+          "size": 10821,
+          "sha256": "fa794871a83bf67ed99f9495d2a10d159b856f8c86f2e0a90efeafe7ea4e783b"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-vii.zip",
+        "size": 9278,
+        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+      }
+    },
+    {
+      "id": "SLPS-00702",
+      "title": "ファイナルファンタジーVII (ディスク3)",
+      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "version": "SLPS-00702 (boot program 61B5B75A)",
+      "api": 1,
+      "file": "SLPS-00702.lua",
+      "size": 10750,
+      "sha256": "4cedd7e83fc02c152051f3d2bec3d4ab8eba858c94c6850f3afda98c92254320",
+      "data": [
+        {
+          "file": "SLPS-00702.charset",
+          "size": 10821,
+          "sha256": "fa794871a83bf67ed99f9495d2a10d159b856f8c86f2e0a90efeafe7ea4e783b"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-vii.zip",
+        "size": 9278,
+        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+      }
+    },
+    {
+      "id": "SLPS-01001",
+      "title": "ムーンライトシンドローム",
+      "reads": "The text window's lines, page by page, with the speaker's name",
+      "version": "SLPS-01001, disc 1 (boot program 6AA67A0C)",
+      "api": 1,
+      "file": "SLPS-01001.lua",
+      "size": 8638,
+      "sha256": "2260dd484299f88b0fae2e0cf1ee368fb6786c165039c9e4e8537cd5a11b79b6",
+      "data": [
+        {
+          "file": "SLPS-01001.charset",
+          "size": 5869,
+          "sha256": "f4e2338f862355f8241e815a15edb24fdd2cdabe25ab23ad66bdff138db8d90b"
+        }
+      ],
+      "names": {
+        "file": "names-moonlight-syndrome.zip",
+        "size": 5284,
+        "sha256": "969784dda3de4da9c4a5d346ae8c5ec652bef1f087e8192150f3168c2f0ebaed"
+      }
+    },
+    {
+      "id": "SLPS-01002",
+      "title": "ムーンライトシンドローム",
+      "reads": "The text window's lines, page by page, with the speaker's name",
+      "version": "SLPS-01002, disc 2 (boot program 6AA67A0C)",
+      "api": 1,
+      "file": "SLPS-01002.lua",
+      "size": 8638,
+      "sha256": "3a65b0d644f2ae3ec1eb076f1da665e49201372a0a516fb9b58c47670ed1eb54",
+      "data": [
+        {
+          "file": "SLPS-01002.charset",
+          "size": 9134,
+          "sha256": "2db3b3a54dcbd6955e4aa09e882f3ab0a0ea5b554f7965629436a10741684838"
+        }
+      ],
+      "names": {
+        "file": "names-moonlight-syndrome.zip",
+        "size": 5284,
+        "sha256": "969784dda3de4da9c4a5d346ae8c5ec652bef1f087e8192150f3168c2f0ebaed"
+      }
+    },
+    {
+      "id": "SLPS-01645",
+      "title": "弟切草 蘇生篇",
+      "reads": "The story's text over the pictures, page by page, and its choices",
+      "version": "SLPS-01645 (boot program 48F74C1B)",
+      "api": 1,
+      "file": "SLPS-01645.lua",
+      "size": 7554,
+      "sha256": "dc0580fe327aaef5a55bc3b4a7ea0d6dfb8a9abdd5c1d1d32c35d48e1aca0694",
+      "data": [
+        {
+          "file": "SLPS-01645.charset",
+          "size": 23381,
+          "sha256": "19cd640583f1ac4a95457f2e34267d6ff35d946a7cdff9145d9d2006380f17ee"
+        }
+      ],
+      "names": {
+        "file": "names-otogirisou.zip",
+        "size": 2931,
+        "sha256": "a96f898d4c01a2888bd85e21abd32bf39930e179a870b21db0a8a28bfaaed7fc"
+      }
+    },
+    {
       "id": "SLPS-01794",
       "title": "かまいたちの夜 特別篇",
       "reads": "The story's text over the pictures, paragraph by paragraph, and its choices",
@@ -90,6 +354,116 @@
         "file": "names-kamaitachi-no-yoru.zip",
         "size": 3707,
         "sha256": "f3ad073b3bd41823c5705f1b2c1ae1675c0c53b5cb9991a0f4687603d6db71ee"
+      }
+    },
+    {
+      "id": "SLPS-02000",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SLPS-02000 (boot program AA3684E8; disc 1 of 4)",
+      "api": 1,
+      "file": "SLPS-02000.lua",
+      "size": 12262,
+      "sha256": "01eed31f6470064f0743df6f898fac4b94a69efd1ef2bed772dc7b2f556c952f",
+      "data": [
+        {
+          "file": "SLPS-02000.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SLPS-02001",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SLPS-02001 (boot program AA3684E8; disc 2 of 4)",
+      "api": 1,
+      "file": "SLPS-02001.lua",
+      "size": 12262,
+      "sha256": "f1a2da16b85d9c3a852bfb6464acaa881e24672c0c39004da3aec754dacf416a",
+      "data": [
+        {
+          "file": "SLPS-02001.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SLPS-02002",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SLPS-02002 (boot program AA3684E8; disc 3 of 4)",
+      "api": 1,
+      "file": "SLPS-02002.lua",
+      "size": 12262,
+      "sha256": "782111d7237880e729d8739a1887c241b79dd5b625b609cf71e5ea5eb3239ee2",
+      "data": [
+        {
+          "file": "SLPS-02002.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SLPS-02003",
+      "title": "ファイナルファンタジーIX",
+      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "version": "SLPS-02003 (boot program AA3684E8; disc 4 of 4)",
+      "api": 1,
+      "file": "SLPS-02003.lua",
+      "size": 12262,
+      "sha256": "5a7736a98214be6f81d84d571776b3e787edb377739664e25484b9e1a5ed1dc9",
+      "data": [
+        {
+          "file": "SLPS-02003.charset",
+          "size": 38750,
+          "sha256": "1a8badde55c92277d5e98eba55e0ede41801f135de16354b22b352663e4af786"
+        }
+      ],
+      "names": {
+        "file": "names-final-fantasy-ix.zip",
+        "size": 8383,
+        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+      }
+    },
+    {
+      "id": "SLPS-02296",
+      "title": "メモリーズオフ",
+      "reads": "The text window's lines, paragraph by paragraph, with the speaker's name, and its choices",
+      "version": "SLPS-02296 (boot program D5FB86B4)",
+      "api": 1,
+      "file": "SLPS-02296.lua",
+      "size": 9631,
+      "sha256": "0e6126c8531593f54fe6572bdd57ee7458b846d4e1578cb65deb470538f2ea75",
+      "data": [
+        {
+          "file": "SLPS-02296.charset",
+          "size": 432,
+          "sha256": "4c36ae6feca71f9f9f555e2671c9c441d7fe46fdf12e25a2f9131ff65df0d7dd"
+        }
+      ],
+      "names": {
+        "file": "names-memories-off.zip",
+        "size": 3476,
+        "sha256": "4be778585fb8c9659efe2328cce5e497bb4546cdaca2e71122832e6e4ebd0606"
       }
     }
   ]
