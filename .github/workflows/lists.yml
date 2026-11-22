@@ -2,7 +2,7 @@ name: Update the script lists
 on:
   push:
     branches: [main]
-    paths: ["scripts/**"]
+    paths: ["games/**", "tools/build-lists.py", "tools/index.py"]
 permissions:
   contents: write
 concurrency: lists
@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Write each console's index.json
+      - name: Make scripts/ from games/
         run: python3 tools/build-lists.py
       - name: Commit them
         run: |
-          if git diff --quiet; then echo "lists up to date"; exit 0; fi
+          if [ -z "$(git status --porcelain -- scripts)" ]; then echo "scripts/ up to date"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/*/index.json
-          git commit -m "Script lists updated"
+          git add -A scripts
+          git commit -m "Scripts and lists made from games/"
           git push

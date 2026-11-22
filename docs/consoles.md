@@ -5,13 +5,13 @@ processor a hook sees, the space `reader.layout` works in, and what the games te
 
 | Console | Folder | Game ID (as `status` shows it) | Hooks | A hook's registers | Layout space |
 | --- | --- | --- | --- | --- | --- |
-| PlayStation | `scripts/ps1` | `SLPS-01234` | yes | MIPS: `zero at v0 v1 a0`…`a3 t0`…`t9 s0`…`s7 k0 k1 gp sp fp ra`, `pc` | 1280×720, the whole picture |
-| PlayStation 2 | `scripts/ps2` | `SLPM-65051` | **no**: `reader.on_frame` only | | 1280×720, the whole picture |
-| PSP | `scripts/psp` | `ULJM05887` | yes | MIPS, as the PlayStation's | 1280×720 (`space = {480, 272}` for the game's own pixels) |
-| Dreamcast | `scripts/dreamcast` | `T14301M`, `HDR-0072` | **no**: `reader.on_frame` only | | 1280×720, the whole picture |
-| 3DS | `scripts/3ds` | `0004000000088A00` | yes | ARM: `r0`…`r12 sp lr pc`, `s0`…`s31`, `d0`…`d15` | top screen 400×240, `screen = "bottom"` 320×240 |
-| DS | `scripts/nds` | `AWIJ` (the cartridge's game code) | yes | ARM9: `r0`…`r12 sp lr pc` | each screen 256×192 |
-| PS Vita | `scripts/vita` | `PCSG00488` | yes | ARM, as the 3DS's; the program's addresses are `reader.base` plus an offset | 960×544 |
+| PlayStation | `games/ps1` | `SLPS-01234` | yes | MIPS: `zero at v0 v1 a0`…`a3 t0`…`t9 s0`…`s7 k0 k1 gp sp fp ra`, `pc` | 1280×720, the whole picture |
+| PlayStation 2 | `games/ps2` | `SLPM-65051` | **no**: `reader.on_frame` only | | 1280×720, the whole picture |
+| PSP | `games/psp` | `ULJM05887` | yes | MIPS, as the PlayStation's | 1280×720 (`space = {480, 272}` for the game's own pixels) |
+| Dreamcast | `games/dreamcast` | `T14301M`, `HDR-0072` | **no**: `reader.on_frame` only | | 1280×720, the whole picture |
+| 3DS | `games/3ds` | `0004000000088A00` | yes | ARM: `r0`…`r12 sp lr pc`, `s0`…`s31`, `d0`…`d15` | top screen 400×240, `screen = "bottom"` 320×240 |
+| DS | `games/nds` | `AWIJ` (the cartridge's game code) | yes | ARM9: `r0`…`r12 sp lr pc` | each screen 256×192 |
+| PS Vita | `games/vita` | `PCSG00488` | yes | ARM, as the 3DS's; the program's addresses are `reader.base` plus an offset | 960×544 |
 
 All of them are little-endian: `mem.u16` and `mem.u32` read the game's numbers as they are.
 

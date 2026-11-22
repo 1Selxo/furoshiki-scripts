@@ -218,5 +218,5 @@ reader.hook(SHOW_MESSAGE, function(cpu)
 end)
 ```
 
-The scripts in `scripts/` are full examples, one console folder each. [AGENTS.md](../AGENTS.md)
+The scripts in `games/` are full examples, one folder per console and per game. [AGENTS.md](../AGENTS.md)
 says how the addresses are found.

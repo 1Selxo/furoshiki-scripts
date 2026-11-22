@@ -19,7 +19,7 @@ which Furoshiki opens when it is started with READER_DESKTOP_CONTROL set: `start
     python tools/agent.py changed A B         # addresses that differ between two snaps
     python tools/agent.py read 0x8A0000 256   # bytes, with the text they decode to
     python tools/agent.py lua "mem.u32(0x8A0000)"
-    python tools/agent.py try scripts/psp/ULJM00000.lua   # into the scripts folder, reloaded
+    python tools/agent.py try games/psp/steins-gate/ULJM05887.lua   # into Furoshiki, reloaded
     python tools/agent.py watch 60            # each line the script reads, for 60 seconds
     python tools/agent.py send "COMMAND ..."  # any command of the channel
     python tools/agent.py stop                # quits Furoshiki
@@ -198,8 +198,9 @@ def summary(now, channel=None):
     folder = FOLDERS.get(console.get("key"), console.get("key"))
     out["console"] = console.get("name")
     if now.get("title_id"):
-        script = ROOT / "scripts" / folder / f"{now['title_id']}.lua"
-        out["script_here"] = f"scripts/{folder}/{script.name}" + ("" if script.exists() else " (none yet)")
+        found = sorted((ROOT / "games" / folder).glob(f"*/{now['title_id']}.lua"))
+        out["script_here"] = (found[0].relative_to(ROOT).as_posix() if found else
+                              f"none yet: games/{folder}/<the game's name, e.g. steins-gate>/{now['title_id']}.lua")
     return out
 
 

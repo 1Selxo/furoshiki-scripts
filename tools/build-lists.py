@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-2.0-or-later
-"""Write every console's index.json, the list that Furoshiki installs scripts from.
+"""Make scripts/, the folders Furoshiki installs from, out of games/, where scripts are written.
 
-    python tools/build-lists.py          # writes scripts/<console>/index.json
-    python tools/build-lists.py --check  # says which lists are out of date, writes nothing
+    python tools/build-lists.py          # writes scripts/<console>/: the files and index.json
+    python tools/build-lists.py --check  # says what in scripts/ is out of date, writes nothing
 
-CI runs it after a merge and commits the lists; a pull request need not touch them.
+games/<console>/<game>/ holds a game's scripts (<ID>.lua), the data files they ask for and its
+names dictionary. Furoshiki wants each console's files side by side with the list, named by ID
+(scripts/<console>/<ID>.lua, index.json), so scripts/ is a copy of games/ in that form. CI writes
+it after every merge; never edit it by hand.
 """
 import importlib.util
 import sys
@@ -15,26 +18,55 @@ ROOT = Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("index", ROOT / "tools" / "index.py")
 index = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(index)
+NOTE = ("This folder is made from games/ by tools/build-lists.py (CI runs it after every merge): "
+        "Furoshiki installs from here. Edit the scripts in games/, never here.\n")
+
+
+def wanted():
+    """{scripts/<console>/<name>: bytes} that games/ makes, and the problems found."""
+    out, problems = {}, []
+    for console in sorted(p for p in (ROOT / "games").iterdir() if p.is_dir()):
+        files = {}
+        for game in sorted(p for p in console.iterdir() if p.is_dir()):
+            for path in sorted(p for p in game.iterdir() if p.is_file()):
+                if path.name.endswith(".md"):
+                    continue
+                if path.name in files and files[path.name] != path.read_bytes():
+                    problems.append(f"games/{console.name}/*/{path.name}: in two game folders")
+                files[path.name] = path.read_bytes()
+        made, left_out = index.make(files, console.name)
+        for game, missing in left_out:
+            problems.append(f"{console.name} {game}: {', '.join(missing)} not beside it")
+        folder = f"scripts/{console.name}/"
+        for name, data in files.items():
+            out[folder + name] = data
+        out[folder + "index.json"] = index.text(made).encode("utf-8")
+    out["scripts/README.md"] = NOTE.encode("utf-8")
+    return out, problems
 
 
 def main(argv):
+    check = "--check" in argv
+    files, problems = wanted()
+    for problem in problems:
+        print(problem, file=sys.stderr)
     stale = []
-    for folder in sorted((ROOT / "scripts").iterdir()):
-        if not folder.is_dir():
-            continue
-        files = {p.name: p.read_bytes() for p in folder.iterdir() if p.is_file() and p.name != "index.json"}
-        made, left_out = index.make(files, folder.name)
-        for game, missing in left_out:
-            print(f"left out {game}: {', '.join(missing)} not in {folder.name}/", file=sys.stderr)
-        text = index.text(made)
-        target = folder / "index.json"
-        if not target.exists() or target.read_text(encoding="utf-8") != text:
-            stale.append(target.relative_to(ROOT).as_posix())
-            if "--check" not in argv:
-                target.write_text(text, encoding="utf-8", newline="\n")
-    for path in stale:
-        print(("out of date: " if "--check" in argv else "written: ") + path)
-    return 1 if stale and "--check" in argv else 0
+    for name, data in files.items():
+        path = ROOT / name
+        if not path.is_file() or path.read_bytes() != data:
+            stale.append(name)
+            if not check:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(data)
+    for path in sorted((ROOT / "scripts").rglob("*")):
+        name = path.relative_to(ROOT).as_posix()
+        if path.is_file() and name not in files:
+            stale.append(name + " (not in games/)")
+            if not check:
+                path.unlink()
+    for line in stale:
+        print(("out of date: " if check else "written: ") + line)
+    return 1 if problems or (check and stale) else 0
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 # Furoshiki scripts: instructions for coding agents
 
 This repository holds the game scripts that [Furoshiki](https://github.com/sommepo/furoshiki)
-reads Japanese games with: one Lua file a game, `scripts/<console>/<game ID>.lua`. A script
+reads Japanese games with: one Lua file a game, in a folder named after the game,
+`games/<console>/<game>/<game ID>.lua` (`games/psp/steins-gate/ULJM05887.lua`). A script
 finds the text the game shows in the emulator's memory and reports it, so that the player can
 look words up in the game's own picture. Furoshiki installs them from here.
 
@@ -38,9 +39,9 @@ python tools/agent.py setup "<Furoshiki's folder>"
 python tools/agent.py start "<the dump>"
 ```
 
-`start` prints the game's ID, its console and whether a script is loaded already. If
-`scripts/<console>/<ID>.lua` exists, the game is supported: say so, and ask whether to improve
-that script instead. (On Linux and macOS use `python3`. `--home DIR` gives Furoshiki a
+`start` prints the game's ID, its console, whether a script is loaded already and where its
+script is here (`script_here`). If one is there, the game is supported: say so, and ask
+whether to improve that script instead. (On Linux and macOS use `python3`. `--home DIR` gives Furoshiki a
 folder of its own for the test, but then the BIOS must be put there too.)
 
 ## 2. Reach the game's text
@@ -89,8 +90,10 @@ from the game, which is never published: tell the user the game cannot be added 
 ## 4. Write the script
 
 Read [docs/script-api.md](docs/script-api.md) and [docs/consoles.md](docs/consoles.md), and
-one or two scripts of the same console in `scripts/<console>/` (a game of the same maker or
-engine is the best start). Then write `scripts/<console>/<ID>.lua`:
+one or two scripts of the same console in `games/<console>/` (a game of the same maker or
+engine is the best start). Then write `games/<console>/<game>/<ID>.lua`, the folder named after
+the game in lower case with hyphens, as its usual romanised or English name (`silent-hill-2`,
+`kamaitachi-no-yoru`). A game's other discs or releases go in the same folder. The script has:
 
 - the header lines (`-- reader: title`, `reads`, `version`, and `no hooks` when it uses none);
 - a comment on how the game keeps its text and what is not covered;
@@ -103,7 +106,7 @@ engine is the best start). Then write `scripts/<console>/<ID>.lua`:
 ## 5. Try it in the game
 
 ```sh
-python tools/agent.py try scripts/<console>/<ID>.lua   # copied into Furoshiki, reloaded
+python tools/agent.py try games/<console>/<game>/<ID>.lua   # copied into Furoshiki, reloaded
 python tools/agent.py watch 30                         # each line as it is read
 ```
 
@@ -133,13 +136,15 @@ python tools/agent.py stop
 (and a data file it asks for, if it is not taken from the game), and write the report for the
 user: the game and its ID, the build, what is read, what was seen and how far, what is not
 covered. With their word, push the branch to their fork and open a pull request here with that
-report. Don't commit `scripts/*/index.json`: it is written when the pull request is merged.
+report. Change nothing in `scripts/`: it is made from `games/` when the pull request is
+merged, and CI refuses a pull request that edits it.
 
 ## Where things are
 
 | | |
 | --- | --- |
-| `scripts/<console>/<ID>.lua` | The scripts; each folder's `index.json` is the list Furoshiki installs from |
+| `games/<console>/<game>/<ID>.lua` | The scripts, a folder per game (with its names dictionary, and a `README.md` of notes if it has one) |
+| `scripts/<console>/` | Made from `games/` by CI: what Furoshiki installs from, with each console's `index.json`. Never edited by hand |
 | `docs/script-api.md` | Everything a script can call |
 | `docs/consoles.md` | Each console's processor, screen space and usual encodings |
 | `tools/agent.py` | Drives Furoshiki while a script is written (`--help`) |
