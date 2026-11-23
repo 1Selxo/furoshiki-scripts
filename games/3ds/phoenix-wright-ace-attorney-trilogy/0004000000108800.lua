@@ -17,8 +17,9 @@
 -- Box dimensions: { 40, 180, 320, 60 }, starting at x=52, y=191, pitch=20.
 -- Not covered: menus, court record evidence descriptions, and graphics drawn directly as textures.
 
-if reader.build_id then
-    error("this profile is for build 52d942e8794d7341c3865ff2b4fe8b85048944611b757f32ee6b923fcac3957d, the game is " .. tostring(reader.build_id))
+local BUILD = "52d942e8794d7341c3865ff2b4fe8b85048944611b757f32ee6b923fcac3957d"
+if reader.build_id ~= BUILD then
+    error("this profile is for build " .. BUILD .. ", the game is " .. tostring(reader.build_id))
 end
 
 local EXPECTED_CODE = {
