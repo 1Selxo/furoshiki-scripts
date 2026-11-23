@@ -47,7 +47,8 @@ def wanted():
 
 
 NAMES = {"ps1": "PlayStation", "ps2": "PlayStation 2", "psp": "PSP", "dreamcast": "Dreamcast",
-         "3ds": "Nintendo 3DS", "nds": "Nintendo DS", "vita": "PS Vita"}
+         "3ds": "Nintendo 3DS", "nds": "Nintendo DS", "vita": "PS Vita",
+         "switch": "Nintendo Switch"}
 
 
 def catalogues():

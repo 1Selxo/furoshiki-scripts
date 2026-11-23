@@ -185,7 +185,7 @@ def cmd_start(args):
 
 # A console's key in Furoshiki and its folder here.
 FOLDERS = {"ps1": "ps1", "ps2": "ps2", "psp": "psp", "dc": "dreamcast", "3ds": "3ds",
-           "nds": "nds", "psvita": "vita"}
+           "nds": "nds", "psvita": "vita", "switch": "switch"}
 
 
 def summary(now, channel=None):

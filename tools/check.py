@@ -24,7 +24,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CONSOLES = {"ps1", "ps2", "psp", "dreamcast", "3ds", "nds", "vita"}
+CONSOLES = {"ps1", "ps2", "psp", "dreamcast", "3ds", "nds", "vita", "switch"}
 NAME = re.compile(r"^((?=[A-Z-]*[0-9])[A-Z0-9][A-Z0-9-]{3,15}|[A-Z]{4})\.lua$")
 HEADER = re.compile(r"^--\s*reader:\s*(\S+)\s+(.*?)\s*$")
 DATA = re.compile(r"""reader\.data\(\s*["']([A-Za-z0-9_.-]+)["']\s*\)""")

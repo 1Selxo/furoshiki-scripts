@@ -1,0 +1,238 @@
+{
+  "format": 1,
+  "system": "switch",
+  "scripts": [
+    {
+      "id": "01001AB0140F2000",
+      "title": "ニューダンガンロンパV3 みんなのコロシアイ新学期 超高校級の決定版 (Danganronpa V3: Killing Harmony Anniversary Edition)",
+      "reads": "The message window: dialogue and narration, without the speaker's name",
+      "version": "Version 0",
+      "api": 1,
+      "file": "01001AB0140F2000.lua",
+      "size": 16467,
+      "sha256": "90a8c55e6cb9590877f3e9ed076d2e720bccd198fbcdf71ff5e9bc9bfa71dbd8",
+      "names": {
+        "file": "names-danganronpa-v3.zip",
+        "size": 27247,
+        "sha256": "29f69efaec8add05035229a5f4f3188cd0cf7dc1db86092a558563e0313c20da"
+      }
+    },
+    {
+      "id": "01001CC017BB2000",
+      "title": "穢翼のユースティア (Aiyoku no Eustia)",
+      "reads": "The message window: narration and dialogue with speakers and furigana, and choices",
+      "version": "Base game (version 0)",
+      "api": 1,
+      "file": "01001CC017BB2000.lua",
+      "size": 12006,
+      "sha256": "6548d1a44fae704f90b50f81cc131090e0f5d73b787cce17fdbaa1425d74d16d",
+      "names": {
+        "file": "names-aiyoku-no-eustia.zip",
+        "size": 4921,
+        "sha256": "12f58d379d90fa3931babb8c75883af24825bae60395ae8f5349c27052352382"
+      }
+    },
+    {
+      "id": "010020D01B890000",
+      "title": "逆転裁判456 王泥喜セレクション (Apollo Justice: Ace Attorney Trilogy)",
+      "reads": "The message window of all three games with the speaker, and the answers of a choice",
+      "version": "Version 0, with 日本語 chosen as the game's language",
+      "api": 1,
+      "file": "010020D01B890000.lua",
+      "size": 17791,
+      "sha256": "0cfeceb594a8f13bfb6b77ae328355d464d6cfd20aad3a63155639ab0cde3cee",
+      "names": {
+        "file": "names-apollo-justice-trilogy.zip",
+        "size": 13567,
+        "sha256": "bf212ffe564891cfcc3dea338a2c5fe353397ad7e474bd5c1fa1dd0970c60d9f"
+      }
+    },
+    {
+      "id": "01003E601E324000",
+      "title": "ドラゴンクエストIII そして伝説へ… (DRAGON QUEST III HD-2D Remake)",
+      "reads": "The message window only: dialogue, system messages and the lines of a battle",
+      "version": "Base game, version 1.0.0",
+      "api": 1,
+      "file": "01003E601E324000.lua",
+      "size": 26135,
+      "sha256": "2b68bdbc404535e11d800da599e1f1fce17b7110041ce6b53646b09bd8c5587c",
+      "names": {
+        "file": "names-dragon-quest-iii-hd-2d.zip",
+        "size": 7321,
+        "sha256": "c2f08a1a4b2a25cb0e6b52bc37fabaf8831c9c3eee263e0d5073933e38a77ac5"
+      }
+    },
+    {
+      "id": "010065301A2E0000",
+      "title": "スターオーシャン セカンドストーリーR (STAR OCEAN THE SECOND STORY R)",
+      "reads": "Conversation balloons with speakers, captions, choices, system messages and the party's chat",
+      "version": "The game with its update v131072",
+      "api": 1,
+      "file": "010065301A2E0000.lua",
+      "size": 28865,
+      "sha256": "a6519d7d04c1ab67cee3fa7c5efb3773fcfe6a6952a771ce480aafcf815dec61",
+      "names": {
+        "file": "names-star-ocean-2r.zip",
+        "size": 8483,
+        "sha256": "3f74365e2d2e721c89809791b1b5c57cd3325b6adfd99d4604252a58fdca82dc"
+      }
+    },
+    {
+      "id": "010080C01AA22000",
+      "title": "東京ザナドゥ eX+ for Nintendo Switch (Tokyo Xanadu eX+)",
+      "reads": "What the characters say in their speech balloons, with speakers and furigana, and the party's remarks (active voice)",
+      "version": "The game as released (1.0.0)",
+      "api": 1,
+      "file": "010080C01AA22000.lua",
+      "size": 16009,
+      "sha256": "69f95cdcec2e4f669ff5c468aec0376bdf00ccf7c2fffc63a9b3649ecb20fa37",
+      "names": {
+        "file": "names-tokyo-xanadu.zip",
+        "size": 8432,
+        "sha256": "8e5bd5f4f605f24f6c8998aa9483057361c03aabafed27fa99b99b9ccdaf353a"
+      }
+    },
+    {
+      "id": "0100BC0018138000",
+      "title": "スーパーマリオRPG (Super Mario RPG)",
+      "reads": "The message windows with speakers and furigana, in the field and in battle, the answers of a choice and the captions of the films",
+      "version": "The game as released (1.0.0)",
+      "api": 1,
+      "file": "0100BC0018138000.lua",
+      "size": 22243,
+      "sha256": "c123f6bc2ac92a638c14caa6b92bf5a9d076a703e6a844e9eb58e1cd07ec606a",
+      "names": {
+        "file": "names-super-mario-rpg.zip",
+        "size": 5494,
+        "sha256": "64753bee4aab03670d4266b90c13866db0bb4f7b3f1d364b93419d33c605c87f"
+      }
+    },
+    {
+      "id": "0100BE40138B8000",
+      "title": "ファタモルガーナの館 -DREAMS OF THE REVENANTS EDITION- (The House in Fata Morgana)",
+      "reads": "Dialogue and narration with furigana, and choices",
+      "version": "Base game (version 0) and its update v65536",
+      "api": 1,
+      "file": "0100BE40138B8000.lua",
+      "size": 24139,
+      "sha256": "5f60f0254fc2b644586e776e0b13a375916c91f8f138c83b91ad134dfc374cce",
+      "names": {
+        "file": "names-the-house-in-fata-morgana.zip",
+        "size": 3507,
+        "sha256": "27aae00c5b230d083689dc96d7ca1bbe6c2798d4d369a9efef82e80b338efec5"
+      }
+    },
+    {
+      "id": "0100CB000A142000",
+      "title": "逆転裁判123 成歩堂セレクション (Phoenix Wright: Ace Attorney Trilogy)",
+      "reads": "The message window of the three games",
+      "version": "The first release (v0)",
+      "api": 3,
+      "file": "0100CB000A142000.lua",
+      "size": 19076,
+      "sha256": "2c9c66c30d43de91f668645efdd853ec8b965a99452ffa408a1d8bc628f1e9ca",
+      "names": {
+        "file": "names-phoenix-wright-ace-attorney-trilogy.zip",
+        "size": 21164,
+        "sha256": "0c02123c6194b28d5bbcacc927690d1eef1a4adee712aea2e4dd4d3858eeeed9"
+      }
+    },
+    {
+      "id": "0100D20026E02000",
+      "title": "魔法少女ノ魔女裁判 (Magical Girl Witch Trials)",
+      "reads": "The message window with speakers and furigana",
+      "version": "The game as released on Switch (2.0.0a)",
+      "api": 1,
+      "file": "0100D20026E02000.lua",
+      "size": 25034,
+      "sha256": "5d07c7ac133ff4c228143c9f1b7feb851376a667bd58eddfbad794e5c20cfdf5",
+      "names": {
+        "file": "names-mahou-shoujo-no-majo-saiban.zip",
+        "size": 5466,
+        "sha256": "59498d7a278119177cba47c94bbb6d99854f59c9a025c6c633992c6f77f30153"
+      }
+    },
+    {
+      "id": "0100D7F00FB1A000",
+      "title": "大逆転裁判1&2 -成歩堂龍ノ介の冒險と覺悟- (The Great Ace Attorney Chronicles)",
+      "reads": "Dialogue, testimony, choices and the court record",
+      "version": "Base game, version 0",
+      "api": 1,
+      "file": "0100D7F00FB1A000.lua",
+      "size": 20007,
+      "sha256": "34ec6ab7867723c4e2882980a1798476766840d8b5fde28bf2543cccfefa55f1",
+      "names": {
+        "file": "names-great-ace-attorney-chronicles.zip",
+        "size": 14120,
+        "sha256": "abaf88b6f84fdb1e031d51974318839d8b107e6b41c1617768cb053dd0023e0b"
+      }
+    },
+    {
+      "id": "0100D9D021782000",
+      "title": "HUNDRED LINE -最終防衛学園- (The Hundred Line -Last Defense Academy-)",
+      "reads": "The talk window: dialogue and narration, with the speaker",
+      "version": "Version 1.0.0 (the base game)",
+      "api": 1,
+      "file": "0100D9D021782000.lua",
+      "size": 12181,
+      "sha256": "f991f61f674631ac382c6f17b0a9e5ecef7d258b5751d50e863abbc4caae07ce",
+      "names": {
+        "file": "names-the-hundred-line.zip",
+        "size": 5627,
+        "sha256": "096ff09e2fe3352431e1cf29bd44b9a08e33be6af1aaa0a9bca4f3e8ad2ea605"
+      }
+    },
+    {
+      "id": "0100F160092D2000",
+      "title": "STEINS;GATE ELITE",
+      "reads": "Narration and dialogue with speakers and furigana, and the phone's mails",
+      "version": "Japanese release (game card), version 1.0.0",
+      "api": 1,
+      "file": "0100F160092D2000.lua",
+      "size": 16326,
+      "sha256": "83565da69bf0f7859c65dc6ed5f8235a65a897246e6ea2fd0d13eb4ebf8809bb",
+      "data": [
+        {
+          "file": "0100F160092D2000.charset",
+          "size": 28657,
+          "sha256": "28e7a5fea32be5b898ce41ebfdb5228d192af76649e09c0bc9ffa2182ebc9e00"
+        }
+      ],
+      "names": {
+        "file": "names-steins-gate.zip",
+        "size": 8083,
+        "sha256": "cbd92971848dbf7e7733bde81199653487b7105634ebc51e6f44f20de5ba1205"
+      }
+    },
+    {
+      "id": "0100F3400332C000",
+      "title": "ゼノブレイド2 (Xenoblade Chronicles 2)",
+      "reads": "What is said in the story's scenes (subtitles) and in the field's balloons, with speakers, furigana and choices, tappable in the game's picture",
+      "version": "The game as released (1.0.0), without an update",
+      "api": 1,
+      "file": "0100F3400332C000.lua",
+      "size": 16628,
+      "sha256": "85dd6c9eda4c3d79a9ab16d64d7037fc16baf7b046f73e909de2e1d64726056e",
+      "names": {
+        "file": "names-xenoblade-chronicles-2.zip",
+        "size": 7804,
+        "sha256": "430328d6542409652eaa26586cce98e2c2e9b628a0b188e6350c3dafdbed44d2"
+      }
+    },
+    {
+      "id": "0100F3F01D6EE000",
+      "title": "マブラヴ (Muv-Luv Remastered)",
+      "reads": "Narration and dialogue in every message window, with speakers, and choices",
+      "version": "Base game, version 1.0.0",
+      "api": 1,
+      "file": "0100F3F01D6EE000.lua",
+      "size": 29321,
+      "sha256": "1e4012aeccbe8ab636f03b31a52842a5724245029d8ffd17ba142a56776c0a76",
+      "names": {
+        "file": "names-muv-luv.zip",
+        "size": 10555,
+        "sha256": "5fed5ffe93b4298ccc7b87a4f1055b5155c91a17650ceb9e79833f66f6ecf16b"
+      }
+    }
+  ]
+}

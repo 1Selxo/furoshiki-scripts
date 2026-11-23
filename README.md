@@ -22,7 +22,11 @@ games/
   3ds/        3DS              shin-megami-tensei-iv/0004000000088A00.lua
   nds/        DS               wish-room/AWIJ.lua
   vita/       PS Vita          sora-no-kiseki-fc/PCSG00488.lua
+  switch/     Switch           steins-gate/0100F160092D2000.lua
 ```
+
+The Switch's scripts are for builds of Furoshiki that have a Switch core. The published
+releases have none.
 
 To find a game, open its console's folder, or press `t` on GitHub and type part of its name.
 A game with several discs or releases keeps all its scripts in its one folder, beside its

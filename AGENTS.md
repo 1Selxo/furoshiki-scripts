@@ -30,8 +30,9 @@ on Windows, Linux and macOS. Nothing here downloads games, BIOS files, keys or f
 - Where Furoshiki is (its folder). It must be **version 0.3.2 or newer**: older versions lack
   the commands below.
 - That the console's BIOS or firmware is already set up in Furoshiki, where the console needs
-  one (PlayStation, PS2, PS Vita). If a game does not start, ask them to start it once from
-  Furoshiki itself and fix what it says.
+  one (PlayStation, PS2, PS Vita, and the Switch's keys). If a game does not start, ask them to
+  start it once from Furoshiki itself and fix what it says.
+- For a Switch game, that their Furoshiki has a Switch core: the published releases do not.
 
 Ask for what you were not given. Then:
 
