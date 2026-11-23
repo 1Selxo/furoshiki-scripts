@@ -49,6 +49,35 @@ game script* from the Game menu):
 Local scripts take precedence over downloaded ones, so you can test or share an unmerged script
 just by sending the `.lua` file.
 
+### Trying a script before it's merged
+
+Anyone can play a script from an open pull request with the Furoshiki they already have.
+Nothing needs to be built or changed.
+
+1. Open the pull request's **Files changed** tab. For each file in the game's folder, open the
+   file's **⋯** menu, choose **View file**, then **Raw**, and save it.
+2. Put the files in the scripts folder above, all side by side. The folder is flat: it does not
+   have this repository's `games/<console>/<game>/` folders. Create it if it doesn't exist.
+
+   ```
+   profiles/
+     SLPM-55281.lua          the script, named after the game's ID
+     SLPM-55281.charset      its character table, if it has one
+     names-clock-zero.zip    a names dictionary, if there is one
+   ```
+
+3. Start the game in Furoshiki. If it is already running, choose *Reload game script* from the
+   Game menu.
+4. Play a few scenes and say on the pull request what you saw: lines read or missed, speakers,
+   choices, whether the popup opens on the word you point at, and which version of the game
+   you have.
+
+To go back, delete the files. Furoshiki then uses the downloaded or built-in script again.
+
+On Android most file managers can't open `Android/data`. Copy the files over a USB cable
+from a computer, with `adb push FILE /sdcard/Android/data/io.github.sommepo.furoshiki/files/reader/profiles/`,
+or with a file manager that has been given access to that folder.
+
 ## Adding a game
 
 Scripts are designed to be written with a coding agent (Claude Code, Codex, Gemini CLI, etc.) on
