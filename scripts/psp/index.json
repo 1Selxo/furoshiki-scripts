@@ -168,6 +168,16 @@
       }
     },
     {
+      "id": "ULJM06390",
+      "title": "FLOWERS",
+      "reads": "The message window with speakers, and choices",
+      "version": "ULJM-06390",
+      "api": 1,
+      "file": "ULJM06390.lua",
+      "size": 13439,
+      "sha256": "d18d0822dd63183f0296b4fdc63cb339c39a2bdf2792acc1128706d3f00584ea"
+    },
+    {
       "id": "ULJS00219",
       "title": "428 ～封鎖された渋谷で～ (428: Shibuya Scramble)",
       "reads": "The story's text with furigana, TIPS and choices",
