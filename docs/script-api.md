@@ -170,6 +170,8 @@ A script begins with comment lines that Furoshiki reads (its *Game scripts* list
 - `title`: the Japanese title as on the title screen, then the English name in brackets.
 - `reads`: in one line, what is read. `version`: the release or disc version it was written for.
 - `no hooks`: only when the script never calls `reader.hook`.
+- `no layout <why>`: only when the script cannot say where its text is on screen
+  (`reader.layout`), with the reason. `tools/check.py` warns about a script that has neither.
 - `audio never`: the game's lines have no voices (its cards get no audio by default).
 - `touch press`: a visual novel played by touch (a tap beside the text presses the advance
   button, a tap on an answer picks it through `reader.cursor`); `touch game` for a game made

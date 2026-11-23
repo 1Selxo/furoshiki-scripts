@@ -116,7 +116,12 @@ the game in lower case with hyphens, as its usual romanised or English name (`si
 - the reading itself: on the PS2 and the Dreamcast from `reader.on_frame` only; elsewhere a
   frame callback or a hook. Emit a line once, when the game shows it, never earlier; the
   speaker in `speaker`; choices with `channel = "choice"`;
-- where the text is, `reader.layout`, when the box and the characters' cells can be found.
+- where the text is, `reader.layout`: the box and each character's cell, so that the player
+  can point at a word on the game's picture. This is expected of every script, not an extra.
+  The game seldom keeps the places itself: they usually follow from where the box is, the size
+  of a character's cell and where the rows break, measured from pictures (`agent.py snap`) and
+  checked against several lines, as the scripts of the same console do. Only when they cannot
+  be found, say why in a header line, `-- reader: no layout <why>`, and in the report.
 
 ## 5. Try it in the game
 
@@ -132,10 +137,11 @@ python tools/agent.py watch 30                         # each line as it is read
 - names, numbers and the player's name come out as shown;
 - a choice is reported as choices, and the game goes on after one;
 - nothing is read on menus, save screens or the title, unless that is meant;
-- after `send "state save 1"`, more lines, and `send "state load 1"`, it still reads.
-
-With `reader.layout`, `python tools/agent.py status --all` lists the text on screen with
-each character's cell; a picture beside it shows whether the cells sit on the characters.
+- after `send "state save 1"`, more lines, and `send "state load 1"`, it still reads;
+- each character's cell sits on that character in the picture, for short and long lines, a
+  line with a speaker and the answers of a choice: `python tools/agent.py status --all` lists
+  the text on screen with each cell, and a picture taken at the same moment shows whether they
+  match.
 
 Fix and `try` again until it holds. Read as far into the game as is reasonable (at least
 the first scenes), and note what you could not reach.
@@ -147,11 +153,13 @@ python tools/check.py
 python tools/agent.py stop
 ```
 
-`check.py` must say 0 problems. Make a branch named after the game, commit only the script
-(and a data file it asks for, if it is not taken from the game), and write the report for the
-user: the game and its ID, the build, what is read, what was seen and how far, what is not
-covered. With their word, push the branch to their fork and open a pull request here with that
-report. Change nothing in `scripts/`: it is made from `games/` when the pull request is
+`check.py` must say 0 problems; a warning (a script without a layout and no
+`-- reader: no layout` line) is to be fixed or explained. Make a branch named after the game,
+commit only the script (and a data file it asks for, if it is not taken from the game), and
+write the report for the user: the game and its ID, the build, what is read, whether the
+characters' places on screen are given (and if not, why), what was seen and how far, what is
+not covered. With their word, push the branch to their fork and open a pull request here with that
+report, in the sections the pull request's template has. Change nothing in `scripts/`: it is made from `games/` when the pull request is
 merged, and CI refuses a pull request that edits it.
 
 ## Where things are

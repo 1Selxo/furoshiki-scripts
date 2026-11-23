@@ -17,6 +17,7 @@ What it holds a script to (README.md, "Rules for a script"):
   for, never the font's pictures.
 """
 import argparse
+import os
 import re
 import shutil
 import subprocess
@@ -29,6 +30,9 @@ NAME = re.compile(r"^((?=[A-Z-]*[0-9])[A-Z0-9][A-Z0-9-]{3,15}|[A-Z]{4})\.lua$")
 HEADER = re.compile(r"^--\s*reader:\s*(\S+)\s+(.*?)\s*$")
 DATA = re.compile(r"""reader\.data\(\s*["']([A-Za-z0-9_.-]+)["']\s*\)""")
 SLUG = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+# A reader.layout call that gives a layout (not only `nil`, which takes one away).
+LAYOUT = re.compile(r"reader\.layout\(\s*[^,()]+,(?!\s*nil\s*\))")
+NO_LAYOUT = re.compile(r"^--\s*reader:\s*no layout\b", re.M)
 LIMIT = 256 * 1024
 
 
@@ -55,6 +59,7 @@ def main():
         print(f"no {args.lua}", file=sys.stderr)
         return 2
     problems = []
+    warnings = []
     scripts = 0
     seen = {}
     for console in sorted((ROOT / "games").iterdir()):
@@ -95,6 +100,10 @@ def main():
                 for key in ("title", "reads", "version"):
                     if not said.get(key):
                         problems.append(f"{where}: no `-- reader: {key} ...` line among its first comments")
+                if not LAYOUT.search(source) and not NO_LAYOUT.search(source):
+                    warnings.append((where, "never says where its text is on screen (reader.layout), so the "
+                                     "words cannot be pointed at on the game's picture; give a layout, or "
+                                     "say why there is none in a `-- reader: no layout <why>` line"))
                 wanted.update(f"{game_id}.{name}" for name in DATA.findall(source))
                 scripts += 1
                 if luac:
@@ -121,7 +130,11 @@ def main():
                         problems.append(f"{where}: a character table is UTF-8 text")
     for problem in problems:
         print(problem)
-    print(f"{scripts} scripts, {len(problems)} problem(s)", file=sys.stderr)
+    annotate = os.environ.get("GITHUB_ACTIONS") == "true"
+    for where, warning in warnings:
+        # On GitHub the warning shows on the pull request's page, beside the file.
+        print(f"::warning file={where}::{warning}" if annotate else f"warning: {where}: {warning}")
+    print(f"{scripts} scripts, {len(problems)} problem(s), {len(warnings)} warning(s)", file=sys.stderr)
     return 1 if problems else 0
 
 
