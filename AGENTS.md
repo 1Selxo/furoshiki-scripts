@@ -23,6 +23,18 @@ on Windows, Linux and macOS. Nothing here downloads games, BIOS files, keys or f
   branch and the commit, then show them the report.
 - Bind every script to the build it was written for (step 5): a script that reads the wrong
   addresses on another release is worse than none.
+- **Only a script that reads the game is offered.** If you could not make it read the game's
+  lines (the text was not found, the game would not start, you ran out of time), stop and tell
+  the user what is missing. Do not open a pull request with a draft, a skeleton or code that
+  is not called yet, and do not describe the script as doing more than you saw it do.
+- **Everything in the script is for this game's build, found in it.** A script of another
+  console or release of the same game (the Switch trilogy for the 3DS one) is a guide to how
+  the engine works, never a source of addresses, layout numbers, actions or data files. Copy
+  nothing from it that you did not find again, and see work, in this build.
+- **A `reader.action` must do what its label says**, changing the game, and you must have seen
+  it do that in the game. An action that only returns a message is a lie to the player.
+- **Leave names dictionaries (`names-*.zip`) out.** The maintainer makes each game's from VNDB
+  after the merge.
 
 ## 1. What you need from the user
 
@@ -153,12 +165,19 @@ python tools/check.py
 python tools/agent.py stop
 ```
 
-`check.py` must say 0 problems; a warning (a script without a layout and no
+`check.py` must say 0 problems. It fails a script that never reports text from a callback
+(`reader.emit` from `reader.on_frame` or `reader.hook`), an action that changes nothing, and a
+names dictionary that is not for a script of its folder; passing it does not show that the
+script works, only the game does. A warning (a script without a layout and no
 `-- reader: no layout` line) is to be fixed or explained. Make a branch named after the game,
 commit only the script (and a data file it asks for, if it is not taken from the game), and
 write the report for the user: the game and its ID, the build, what is read, whether the
 characters' places on screen are given (and if not, why), what was seen and how far, what is
-not covered. With their word, push the branch to their fork and open a pull request here with that
+not covered. The report quotes **at least five lines exactly as `python tools/agent.py watch`
+printed them** while you played (with their speakers, and a choice if the part played has
+one): this is what shows that the script reads the game. Before you send it, read the report
+against the script line by line: every claim in it must be something the script does and you
+saw. A pull request without those lines is not merged. With their word, push the branch to their fork and open a pull request here with that
 report, in the sections the pull request's template has. Change nothing in `scripts/`: it is made from `games/` when the pull request is
 merged, and CI refuses a pull request that edits it.
 

@@ -17,11 +17,13 @@ What it holds a script to (README.md, "Rules for a script"):
   for, never the font's pictures.
 """
 import argparse
+import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -33,6 +35,58 @@ SLUG = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 # A reader.layout call that gives a layout (not only `nil`, which takes one away).
 LAYOUT = re.compile(r"reader\.layout\(\s*[^,()]+,(?!\s*nil\s*\))")
 NO_LAYOUT = re.compile(r"^--\s*reader:\s*no layout\b", re.M)
+API = re.compile(r"^--\s*reader:\s*api\s+(\d+)", re.M)
+CALLBACK = re.compile(r"reader\.(?:on_frame|hook)\s*\(")
+WRITES = re.compile(r"mem\.w(?:8|16|32|64)\s*\(")
+LOCAL_FUNCTION = re.compile(r"\blocal\s+function\s+([A-Za-z_]\w*)")
+
+
+def code_of(source):
+    """The script without its comments, so that a word in a comment counts for nothing."""
+    source = re.sub(r"--\[(=*)\[.*?\]\1\]", "", source, flags=re.S)
+    return re.sub(r"--[^\n]*", "", source)
+
+
+def reading_problems(source):
+    """What makes a script read nothing, or promise what it does not do: each one fails."""
+    code = code_of(source)
+    out = []
+    if "reader.emit" not in code:
+        out.append("never reports any text (reader.emit): it would read nothing in the game")
+    if not CALLBACK.search(code):
+        out.append("registers no reader.on_frame or reader.hook, so nothing of it runs while the game plays")
+    if "reader.action" in code:
+        api = API.search(source)
+        if not api or int(api.group(1)) < 3:
+            out.append("uses reader.action without a `-- reader: api 3` line")
+        if not WRITES.search(code):
+            out.append("offers reader.action but never changes the game (mem.w8/w16/w32/w64): an action "
+                       "must do what its label says, so leave it out until it does")
+    return out
+
+
+def reading_warnings(source):
+    code = code_of(source)
+    out = []
+    unused = [name for name in LOCAL_FUNCTION.findall(code) if len(re.findall(rf"\b{name}\b", code)) < 2]
+    if unused:
+        out.append(f"defines functions it never calls ({', '.join(unused)}): finish them or take them out")
+    if "error(" not in code:
+        out.append("has no build check (an error(...) when reader.build_id is not the build it was written for)")
+    return out
+
+
+def names_problem(zip_path, ids):
+    """A names dictionary must be for a game of its folder (its index.json's furoshikiScope)."""
+    try:
+        with zipfile.ZipFile(zip_path) as archive:
+            scope = json.loads(archive.read("index.json")).get("furoshikiScope", [])
+    except (zipfile.BadZipFile, KeyError, ValueError) as error:
+        return f"not a names dictionary that can be read ({error})"
+    if not set(scope) & ids:
+        return (f"is for {', '.join(scope) or 'no game'}, not for a script of this folder "
+                f"({', '.join(sorted(ids))}): leave it out, the maintainer makes it after the merge")
+    return None
 LIMIT = 256 * 1024
 
 
@@ -104,6 +158,8 @@ def main():
                     warnings.append((where, "never says where its text is on screen (reader.layout), so the "
                                      "words cannot be pointed at on the game's picture; give a layout, or "
                                      "say why there is none in a `-- reader: no layout <why>` line"))
+                problems.extend(f"{where}: {problem}" for problem in reading_problems(source))
+                warnings.extend((where, warning) for warning in reading_warnings(source))
                 wanted.update(f"{game_id}.{name}" for name in DATA.findall(source))
                 scripts += 1
                 if luac:
@@ -117,7 +173,11 @@ def main():
                 where = f"{here}/{name}"
                 if path.is_dir():
                     problems.append(f"{where}: no folders inside a game's folder")
-                elif name.endswith(".lua") or name == "README.md" or re.match(r"^names-[a-z0-9-]+\.zip$", name):
+                elif re.match(r"^names-[a-z0-9-]+\.zip$", name):
+                    problem = names_problem(path, {p.stem for p in game.glob("*.lua")})
+                    if problem:
+                        problems.append(f"{where}: {problem}")
+                elif name.endswith(".lua") or name == "README.md":
                     continue
                 elif name not in wanted:
                     problems.append(f"{where}: no script here asks for it (reader.data)")

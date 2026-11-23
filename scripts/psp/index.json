@@ -175,7 +175,12 @@
       "api": 1,
       "file": "ULJM06390.lua",
       "size": 13439,
-      "sha256": "d18d0822dd63183f0296b4fdc63cb339c39a2bdf2792acc1128706d3f00584ea"
+      "sha256": "d18d0822dd63183f0296b4fdc63cb339c39a2bdf2792acc1128706d3f00584ea",
+      "names": {
+        "file": "names-flowers.zip",
+        "size": 3260,
+        "sha256": "eba34ad6ceeefc97b959f7b993637cf282df333c6d8027f18efd71cc2fb3710d"
+      }
     },
     {
       "id": "ULJS00219",

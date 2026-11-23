@@ -55,8 +55,6 @@ for line in data:gmatch("[^\n]+") do
     end
 end
 
-local function s16(v) return v and (v >= 0x8000 and v - 0x10000 or v) or 0 end
-
 -- The window's characters as the boot program draws them (0x8001D534): {ch, x, y, w, h}
 -- relative to the window, and {ch = "\n"} where a line ends or wraps. A glyph that has no
 -- character in the table (a blank one) takes its room and is not reported.

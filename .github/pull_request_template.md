@@ -9,6 +9,15 @@
 
 <!-- The message window, speakers, furigana, choices, other screens. -->
 
+### Lines read in the game
+
+<!-- Required. Paste at least five lines exactly as `python tools/agent.py watch` printed them
+while you played, with their speakers, and a choice if the part played has one. A pull request
+without them is not merged. -->
+
+```
+```
+
 ### Where the text is on screen
 
 - [ ] The script gives `reader.layout` for every window it reads, and each character's cell
@@ -26,4 +35,7 @@
 ### Checks
 
 - [ ] `python tools/check.py` says 0 problems (and no warning, or the warning is explained above).
-- [ ] Only files in `games/<console>/<game>/` are changed.
+- [ ] Only files in `games/<console>/<game>/` are changed, and no `names-*.zip` (the maintainer makes it).
+- [ ] Every address, layout number and action was found in this build, not copied from another
+      release's script, and every `reader.action` was seen changing the game.
+- [ ] I read this description against the script: it claims nothing the script doesn't do.

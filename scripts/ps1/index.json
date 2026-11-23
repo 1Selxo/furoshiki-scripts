@@ -216,8 +216,8 @@
       "version": "SLPS-00700 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00700.lua",
-      "size": 10750,
-      "sha256": "2417dddc80d01e4194991c4496d8f8ddfd65488178fe4f214eda73fb71a1978a",
+      "size": 10670,
+      "sha256": "4f09cf12bfd595eb2851ce29ad3f06cc88b6b39cf735179dc3fafa9128d3fa45",
       "data": [
         {
           "file": "SLPS-00700.charset",
@@ -238,8 +238,8 @@
       "version": "SLPS-00701 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00701.lua",
-      "size": 10750,
-      "sha256": "18947a208639c8bdf6c867aad8cb489d9f4ecf9c86803124093258f721d8fdd0",
+      "size": 10670,
+      "sha256": "d16c47837df8b76c61315209db2c93de0f69f8cf8a5b219a986a380749ad77e6",
       "data": [
         {
           "file": "SLPS-00701.charset",
@@ -260,8 +260,8 @@
       "version": "SLPS-00702 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00702.lua",
-      "size": 10750,
-      "sha256": "4cedd7e83fc02c152051f3d2bec3d4ab8eba858c94c6850f3afda98c92254320",
+      "size": 10670,
+      "sha256": "80551a38a64eb8a515aa15c183de44099c46ddf39823ef63b68c7c0c5e718c93",
       "data": [
         {
           "file": "SLPS-00702.charset",
@@ -326,8 +326,8 @@
       "version": "SLPS-01645 (boot program 48F74C1B)",
       "api": 1,
       "file": "SLPS-01645.lua",
-      "size": 7554,
-      "sha256": "dc0580fe327aaef5a55bc3b4a7ea0d6dfb8a9abdd5c1d1d32c35d48e1aca0694",
+      "size": 7487,
+      "sha256": "4014dfa2edc0b385bfbec02b3b5ff01ddb24d7e3adaa0ea1064dfd3a5c549a1d",
       "data": [
         {
           "file": "SLPS-01645.charset",

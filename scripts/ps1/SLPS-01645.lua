@@ -49,8 +49,6 @@ for line in data:gmatch("[^\n]+") do
     end
 end
 
-local function s16(v) return v >= 0x8000 and v - 0x10000 or v end
-
 -- The page as the sprite table has it: {slot, id, ch, x, y, w, h}, in the order drawn.
 local function read_page()
     local count = mem.u32(COUNT) or 0

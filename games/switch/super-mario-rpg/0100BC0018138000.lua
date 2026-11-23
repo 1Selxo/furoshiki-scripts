@@ -97,12 +97,6 @@ local function utf16(p)
     return mem.read(p + STR_CHARS, n * 2)
 end
 
-local function class_name(object)
-    local class = pointer(object)
-    local name = class and pointer(class + K_NAME)
-    return name and mem.cstr(name, 64) or ""
-end
-
 local function list(l)
     local items, size = l and pointer(l + LIST_ITEMS), l and mem.s32(l + LIST_SIZE)
     local out = {}
