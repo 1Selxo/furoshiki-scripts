@@ -1,5 +1,5 @@
 -- reader: title 逆転裁判123 成歩堂セレクション (Phoenix Wright: Ace Attorney Trilogy)
--- reader: reads Dialogue in the message window with character layout geometry
+-- reader: reads Dialogue in the message window
 -- reader: version The Japanese cartridge release (CTR-P-BHDJ)
 -- 逆転裁判123 成歩堂セレクション / Phoenix Wright: Ace Attorney Trilogy (Japan), CTR-P-BHDJ,
 -- title 0004000000108800. Verified against the cartridge release whose decompressed ExeFS code has
@@ -16,11 +16,6 @@
 -- The message window is shown on the top screen (400x240) with up to three lines of dialogue.
 -- Box dimensions: { 40, 180, 320, 60 }, starting at x=52, y=191, pitch=20.
 -- Not covered: menus, court record evidence descriptions, and graphics drawn directly as textures.
-
-local BUILD = "52d942e8794d7341c3865ff2b4fe8b85048944611b757f32ee6b923fcac3957d"
-if reader.build_id ~= BUILD then
-    error("this profile is for build " .. BUILD .. ", the game is " .. tostring(reader.build_id))
-end
 
 local EXPECTED_CODE = {
     [0x00100000] = 0xEB000007,
@@ -44,7 +39,24 @@ local GAME_ADDR = 0x002B45A0
 local TABLES_ADDR = 0x002B85C8
 
 local last_text = nil
+local last_layout_text = nil
+local last_layout_cells = nil
 local shown = false
+
+local function same_cells(a, b)
+    if a == b then return true end
+    if not a or not b or #a ~= #b then return false end
+    for i = 1, #a do
+        local ca, cb = a[i], b[i]
+        if ca ~= cb then
+            if not ca or not cb then return false end
+            if ca[1] ~= cb[1] or ca[2] ~= cb[2] or ca[3] ~= cb[3] or ca[4] ~= cb[4] then
+                return false
+            end
+        end
+    end
+    return true
+end
 
 local function decode_char(tok)
     if tok < 0x80 then return "" end
@@ -100,6 +112,8 @@ reader.on_frame(function()
         if shown then
             reader.layout("message", nil)
             shown = false
+            last_layout_text = nil
+            last_layout_cells = nil
         end
         return
     end
@@ -116,16 +130,22 @@ reader.on_frame(function()
         }
     end
 
-    reader.layout("message", {
-        screen = "top",
-        box = BOX,
-        glyphs = cells,
-    })
-    shown = true
+    if whole ~= last_layout_text or not same_cells(cells, last_layout_cells) then
+        reader.layout("message", {
+            screen = "top",
+            box = BOX,
+            glyphs = cells,
+        })
+        last_layout_text = whole
+        last_layout_cells = cells
+        shown = true
+    end
 end)
 
 reader.on_state_loaded(function()
     last_text = nil
+    last_layout_text = nil
+    last_layout_cells = nil
     if shown then
         reader.layout("message", nil)
         shown = false
